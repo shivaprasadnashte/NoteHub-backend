@@ -28,7 +28,7 @@ export const getGroups = async (req, res) => {
     return res.status(500).json({ message: "Server Error" });
   }
 };
-
+ 
 export const deleteGroup = async (req, res) => {
   try {
     const { id } = req.params;
@@ -38,7 +38,7 @@ export const deleteGroup = async (req, res) => {
     console.log(error.message);
     return res.status(500).json({ message: "Server Error" });
   }
-};
+};  
 
 export const updateGroup = async (req, res) => {
   try {

@@ -56,4 +56,20 @@ export const shareNote = async (req, res) => {
   }
 };
 
+export const shareNoteByGrpId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const note = await Note.find({ group: id });
+    if (!note) {
+      return res.status(400).json({ message: "Note note found" });
+    } else {
+      // return res.status(200).json({ message: "Note shared successfully" });
+      return res.status(200).json(note);
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 
